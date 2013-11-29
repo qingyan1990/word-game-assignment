@@ -1,12 +1,6 @@
-hash = {}
+hash = Hash.new(0)
 File.open('new_para.zh').each_line do |line|
-  line.strip.split.each do |word|
-    if hash.key?(word)
-      hash[word] += 1
-    else
-      hash[word] = 1
-    end
-  end
+  line.strip.split.each{|word| hash[word] += 1}
 end
 
 count = open('para_word_count.csv','a')
