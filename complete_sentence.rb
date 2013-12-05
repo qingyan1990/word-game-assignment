@@ -38,8 +38,8 @@ index_array.each do |x|
   candidate = ""
   after_setence = ""
   before_setence = ""
-  before_setence = setence[0..x-1].split('_').join if x > 0
-  after_setence = setence[x+1..-1].split('_').join if x < setence.size - 1
+  before_setence = setence[0..x-1].delete('_') if x > 0
+  after_setence = setence[x+1..-1].delete('_') if x < setence.size - 1
   before_word = split_setence(before_setence).last unless before_setence.empty?
   after_word = split_setence(after_setence).first unless after_setence.empty?
   #before_word_count = Word.where(word: before_word).pluck(:number).first.to_f
